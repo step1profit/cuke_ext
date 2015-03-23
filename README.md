@@ -11,7 +11,7 @@
 
 # Running Tests
 
-Before running tests, make sure you have memcached (maybe use homebrew: [http://www.google.com/search?q=brew+install+memcached](http://www.google.com/search?q=brew+install+memcached)) installed and running, or you will run into this issue: [https://github.com/Nerian/akephalos2/issues/29](https://github.com/Nerian/akephalos2/issues/29)
+Before running tests, make sure you have memcached (maybe use homebrew): [http://www.google.com/search?q=brew+install+memcached](http://www.google.com/search?q=brew+install+memcached)) installed and running, or you will run into this issue: [https://github.com/Nerian/akephalos2/issues/29](https://github.com/Nerian/akephalos2/issues/29)
 
 ### Autotest (preferred)
 
@@ -40,8 +40,7 @@ notes:
 
 # Writing Tests
 
-
-wms_svc_listing has defined two custom 'steps':
+CukeExt adds two custom 'steps' for working with an JSON API:
 
 ### 1. Calling API with Path and Query-String
 ```
