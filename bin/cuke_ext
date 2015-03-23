@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'optparse'
+
+$:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'cuke_ext'
+
+module CukeExtOpt 
+  def self.command
+    OptionParser.new do |opts|
+      opts.banner = "CukeExt #{CukeExt::VERSION}"
+
+      opts.on("-h", "--help", "Show this message") do
+        puts opts
+        return
+      end
+    end.parse!
+  end
+end
+
+CukeExtOpt.command

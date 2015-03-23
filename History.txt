@@ -1,0 +1,10 @@
+=== 1.0.0 / 2012-05-14
+
+* 1 major enhancement
+
+  * Birthday!
+
+=== 1.2.0 / 2015-05-23
+
+* moved repo
+* this version is broken until URLs are moved to config variables

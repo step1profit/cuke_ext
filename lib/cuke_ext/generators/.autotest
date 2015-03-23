@@ -1,0 +1,52 @@
+# -*- ruby -*-
+
+#
+# http://zentest.rubyforge.org/ZenTest/Autotest.html
+#
+Autotest.add_hook :initialize do |at|
+  # http://blog.davidchelimsky.net/2008/03/05/limiting-scope-of-autotest/
+  #%w{features}.each {|dir| at.find_directories(dir)}
+  #at.find_directories = ['./features', './spec', '/app', '/lib'] 
+  at.find_directories = ['./features']
+
+#
+#   at.extra_files << "../some/external/dependency.rb"
+#
+
+#
+#   at.libs << ":../some/external"
+#
+
+#
+#  add_exception
+#
+#  %w{.git .svn .DS_Store db log tmp vendor ._* .sqlite3 rerun.txt}.each {|exception| at.add_exception(exception)}
+  # http://www.ur-ban.com/blog/2010/07/31/rspeccucumber-autotest-loop/
+  at.add_exception(%r{^\./\.git})
+  at.add_exception(%r{^\./db})
+  at.add_exception(%r{^\./log})
+  at.add_exception(%r{^\./tmp})
+  at.add_exception(%r{^\./rerun\.txt})
+  at.add_exception(%r{^\./Gemfile\.lock})
+  at.add_exception(%r{^\./\.swp})
+  at.add_exception(%r{^\./\.swo})
+  #at.add_exception(%r{^\./var})
+
+#  at.clear_mappings         # take out the default (test/test*rb)
+#at.add_mapping(%r%^features/.*feature$%) {|filename, _|
+#  filename
+#}
+   at.add_mapping(/dependency.rb/) do |f, _|
+     #at.files_matching(/.*steps\.rb$/)
+     at.files_matching(/.*\.feature$/)
+   end
+
+#
+#   %w(TestA TestB).each do |klass|
+#     at.extra_class_map[klass] = "test/test_misc.rb"
+#   end
+end
+
+# Autotest.add_hook :run_command do |at|
+#   system "rake build"
+# end
